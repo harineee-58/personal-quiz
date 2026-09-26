@@ -7,8 +7,8 @@ const geist = Geist({ subsets: ['latin', 'vietnamese'], variable: '--font-geist'
 const geistMono = Geist_Mono({ subsets: ['latin'], variable: '--font-geist-mono' })
 
 export const metadata: Metadata = {
-  title: 'Inner Compass — Bạn thuộc kiểu người nào?',
-  description: 'Một bài test tính cách nhẹ nhàng để khám phá bản thân.',
+  title: 'Một lời nhắn từ vũ trụ — Inner Compass',
+  description: 'Chọn một lá bài và lắng nghe thông điệp dịu dàng dành riêng cho bạn.',
   generator: 'v0.app',
 }
 
