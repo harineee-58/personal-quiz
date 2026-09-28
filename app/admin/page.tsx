@@ -12,7 +12,7 @@ export default function AdminPage() {
   const [data, setData] = useState<{ submissions: Submission[]; visits: number } | null>(null)
   const [detail, setDetail] = useState<Detail | null>(null)
 
-  async function load() { const response = await fetch('/api/admin/submissions'); if (response.ok) { setData(await response.json()); setLoggedIn(true) } }
+  async function load() { const response = await fetch('/api/admin/submissions', { cache: 'no-store' }); if (response.ok) { setData(await response.json()); setLoggedIn(true); return true } return false }
   useEffect(() => { load() }, [])
   async function login(event: React.FormEvent) { event.preventDefault(); const response = await fetch('/api/admin/login', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ password }) }); if (!response.ok) return setError('Mật khẩu không đúng'); setError(''); await load() }
   async function openDetail(id: string) { const response = await fetch('/api/admin/submissions', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ id }) }); if (response.ok) setDetail(await response.json()) }
